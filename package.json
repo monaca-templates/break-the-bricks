@@ -1,6 +1,6 @@
 {
     "name": "break-the-bricks",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "displayName": "Break the Bricks",
     "scripts": {
         "monaca:preview": "npm run dev",
