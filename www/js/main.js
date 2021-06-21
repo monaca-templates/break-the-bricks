@@ -455,7 +455,7 @@ function setBound() {
 
 function vibrate(duration) {
     if (typeof duration === 'undefined') duration = 500;
-    if (typeof navigator.notification !== 'undefined') navigator.vibrate(duration);
+    if (typeof navigator !== 'undefined') navigator.vibrate(duration);
 }
 
 function getUa() {
