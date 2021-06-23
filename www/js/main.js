@@ -436,13 +436,13 @@ function setBound() {
         case "Android":
             bound.height = window.innerHeight;
             bound.width = window.innerWidth;
-            //bound.zoom = screen.availWidth / bound.width;
+            bound.zoom = screen.availWidth / bound.width;
             break;
         case "iPad":
         case "iPhone":
             bound.height = screen.availHeight;
             bound.width = screen.availWidth;
-            //bound.zoom = screen.availWidth / bound.width;
+            bound.zoom = screen.availWidth / bound.width;
             break;
         default:
             bound.height = window.innerHeight;
