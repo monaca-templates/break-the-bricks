@@ -53,10 +53,11 @@ var BB = {
             [null,      null,       null,       null,       null,       'silver',   null,       null,       null,       null]
         ];
         
+        var position = parseInt(BB.renderer.width * 0.5) - (5 * 30)
         for(j = 0; j < blockMap.length; j++) {
             for(i = 0; i < blockMap[j].length; i++) {
                 if(blockMap[j][i] !== null) {
-                    var block = BB.addBlock(10 + (30 * i), 80 + (12 * j), blockMap[j][i]);
+                    var block = BB.addBlock(position + (30 * i), 80 + (12 * j), blockMap[j][i]);
                 }
             }
         }
@@ -433,13 +434,19 @@ function setBound() {
     };
     switch (getUa()) {
         case "Android":
+            bound.height = window.innerHeight;
+            bound.width = window.innerWidth;
+            bound.zoom = screen.availWidth / bound.width;
+            break;
         case "iPad":
         case "iPhone":
-            bound.height = screen.availHeight * (bound.width / screen.availWidth);
+            bound.height = screen.availHeight;
+            bound.width = screen.availWidth;
             bound.zoom = screen.availWidth / bound.width;
             break;
         default:
             bound.height = window.innerHeight;
+            bound.width = window.innerWidth;
             break;
     }
 
@@ -448,7 +455,7 @@ function setBound() {
 
 function vibrate(duration) {
     if (typeof duration === 'undefined') duration = 500;
-    if (typeof navigator.notification !== 'undefined') navigator.notification.vibrate(duration);
+    if (typeof navigator !== 'undefined') navigator.vibrate(duration);
 }
 
 function getUa() {
