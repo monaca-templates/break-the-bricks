@@ -407,8 +407,11 @@ function animate() {
 }
 
 window.onload = function() {
-    if(getUa() === false) init();
-    else document.addEventListener("deviceready", init, false);
+    if (typeof window.deviceready === 'undefined') {
+        init();
+    } else {
+        document.addEventListener("deviceready", init, false);
+    }
 }
 
 function setScale(bound) {
@@ -440,8 +443,8 @@ function setBound() {
             break;
         case "iPad":
         case "iPhone":
-            bound.height = screen.availHeight;
-            bound.width = screen.availWidth;
+            bound.height = window.innerHeight;
+            bound.width = window.innerWidth;
             bound.zoom = screen.availWidth / bound.width;
             break;
         default:
