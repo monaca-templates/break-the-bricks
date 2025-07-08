@@ -1,6 +1,6 @@
 {
   "name": "break-the-bricks",
-  "version": "4.1.3",
+  "version": "4.1.4",
   "displayName": "Break the Bricks",
   "engines": {
     "node": ">=18.16"
